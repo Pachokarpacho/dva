@@ -29,7 +29,7 @@ func isPrime(n int) bool {
 
 func main() {
 	// Чтение содержимого файла input.txt
-	data, err := ioutil.ReadFile("/app/input.txt")
+	data, err := ioutil.ReadFile("input.txt")
 	if err != nil {
 		fmt.Println("Ошибка при чтении файла:", err)
 		return
