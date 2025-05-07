@@ -24,9 +24,9 @@ clean:
 # Сборка .deb пакета
 deb:
 	@echo "Сборка .deb пакета..."
-	mkdir -p myprogram/usr/bin
+	mkdir -p myprogram/usr/bun
 	mkdir -p myprogram/app  # Создаём директорию для input.txt
-	cp lab myprogram/usr/bin/lab
+	cp lab myprogram/usr/bun/lab
 	cp cmd/lab/input.txt myprogram/app/input.txt  # Убедитесь, что путь к input.txt правильный
 	mkdir -p myprogram/DEBIAN
 	echo "Package: lab" > myprogram/DEBIAN/control
