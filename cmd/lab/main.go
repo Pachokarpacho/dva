@@ -1,49 +1,64 @@
 package main
 
 import (
- "fmt"
- "math"
- "strconv"
+	"fmt"
+	"io/ioutil"
+	"math"
+	"strconv"
+	"strings"
 )
 
-// Функция для проверки, является ли число простым/
+// Функция для проверки, является ли число простым
 func isPrime(n int) bool {
- if n < 1 {
-  return false
- }
- if n == 2 || n == 3  || n == 1{
-  return true
- }
- if n%2 == 0 {
-  return false
- }
- for i := 3; i <= int(math.Sqrt(float64(n))); i += 2 {
-  if n%i == 0 {
-   return false
-  }
- }
- return true
+	if n < 1 {
+		return false
+	}
+	if n == 2 || n == 3 || n == 1 {
+		return true
+	}
+	if n%2 == 0 {
+		return false
+	}
+	for i := 3; i <= int(math.Sqrt(float64(n))); i += 2 {
+		if n%i == 0 {
+			return false
+		}
+	}
+	return true
 }
 
 func main() {
- var input string
- fmt.Print("Введите число: ")
- fmt.Scanln(&input)
+	// Чтение содержимого файла input.txt
+	data, err := ioutil.ReadFile("input.txt")
+	if err != nil {
+		fmt.Println("Ошибка при чтении файла:", err)
+		return
+	}
 
- num, err := strconv.Atoi(input)
- if err != nil {
-  fmt.Println("Ошибка: введенное значение не является целым числом.")
-  return
- }
+	// Разделение содержимого на строки
+	lines := strings.Split(string(data), "\n")
 
- if num < 1 {
-  fmt.Println("Ошибка: число должно быть положительным и >= 1.")
-  return
- }
+	for _, line := range lines {
+		input := strings.TrimSpace(line)
+		if input == "" {
+			continue // пропуск пустых строк
+		}
 
- if isPrime(num) {
-  fmt.Printf("%d - простое число.\n", num)
- } else {
-  fmt.Printf("%d - не является простым числом.\n", num)
- }
+		num, err := strconv.Atoi(input)
+		if err != nil {
+			fmt.Printf("Ошибка: \"%s\" не является целым числом.\n", input)
+			continue
+		}
+
+		if num < 1 {
+			fmt.Printf("Ошибка: %d должно быть положительным и >= 1.\n", num)
+			continue
+		}
+
+		if isPrime(num) {
+			fmt.Printf("%d - простое число.\n", num)
+		} else {
+			fmt.Printf("%d - не является простым числом.\n", num)
+		}
+	}
 }
