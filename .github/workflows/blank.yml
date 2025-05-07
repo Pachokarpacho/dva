@@ -64,11 +64,10 @@ jobs:
           path: .
       - name: Build Docker image        
         run: |
-          chmod +x lab
           docker build -t my-lab-app .          
       - name: Run Docker container        
         run: |
-          chmod +x lab         
+          docker run --rm my-lab-app --success       
       - name: Save Docker image as tar file        
         run: |
           docker save -o my-lab-app.tar my-lab-app
