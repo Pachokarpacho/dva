@@ -25,6 +25,7 @@ deb:
 	@echo "Сборка .deb пакета..."
 	mkdir -p myprogram/usr/bin
 	cp lab myprogram/usr/bin/lab
+	cp cmd/lab/input.txt myprogram/app/input.txt
 	mkdir -p myprogram/DEBIAN
 	echo "Package: lab" > myprogram/DEBIAN/control
 	echo "Version: 1.0" >> myprogram/DEBIAN/control
