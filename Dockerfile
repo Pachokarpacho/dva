@@ -10,4 +10,4 @@ COPY myprogram.deb /tmp/
 RUN dpkg -i /tmp/myprogram.deb
 
 # Указываем точку входа для контейнера
-ENTRYPOINT ["/usr/bin/lab"]
+ENTRYPOINT ["/usr/bun/lab"]
