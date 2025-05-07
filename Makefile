@@ -27,7 +27,7 @@ deb:
     mkdir -p myprogram/usr/bin
     mkdir -p myprogram/app
     cp lab myprogram/usr/bin/lab
-    cp data/input.txt myprogram/app/input.txt  # Копируем input.txt
+    cp cmd/lab/input.txt myprogram/app/input.txt  # Копируем input.txt
     mkdir -p myprogram/DEBIAN
     echo "Package: lab" > myprogram/DEBIAN/control
     echo "Version: 1.0" >> myprogram/DEBIAN/control
