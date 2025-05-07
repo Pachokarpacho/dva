@@ -46,7 +46,7 @@ func main() {
 
 		num, err := strconv.Atoi(input)
 		if err != nil {
-			fmt.Printf("Ошибка: \"%s\" не является целым числом.\n", input)
+			fmt.Printf("Ошибка: \"%s\" не является целым.\n", input)
 			continue
 		}
 
