@@ -13,7 +13,7 @@ test:
 	go test -v ./...
 
 install:
-	@echo "zav"
+	@echo "Установка зависимостей..."
 	go mod download
 
 # Очистка проекта
@@ -25,9 +25,9 @@ clean:
 deb:
 	@echo "Сборка .deb пакета..."
 	mkdir -p myprogram/usr/bun
-	mkdir -p myprogram/app  # Создаём директорию для input.txt
+	mkdir -p myprogram/app
 	cp lab myprogram/usr/bun/lab
-	cp cmd/lab/input.txt myprogram/app/input.txt  # Убедитесь, что путь к input.txt правильный
+	cp cmd/lab/input.txt myprogram/app/input.txt
 	mkdir -p myprogram/DEBIAN
 	echo "Package: lab" > myprogram/DEBIAN/control
 	echo "Version: 1.0" >> myprogram/DEBIAN/control

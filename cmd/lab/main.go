@@ -28,20 +28,18 @@ func isPrime(n int) bool {
 }
 
 func main() {
-	// Чтение содержимого файла input.txt
 	data, err := ioutil.ReadFile("/app/input.txt")
 	if err != nil {
 		fmt.Println("Ошибка при чтении файла:", err)
 		return
 	}
 
-	// Разделение содержимого на строки
 	lines := strings.Split(string(data), "\n")
 
 	for _, line := range lines {
 		input := strings.TrimSpace(line)
 		if input == "" {
-			continue // пропуск пустых строк
+			continue
 		}
 
 		num, err := strconv.Atoi(input)
